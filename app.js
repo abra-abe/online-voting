@@ -63,6 +63,5 @@ app.all("*", (req, res) => {
     res.status(404).send("404! Page Not Found")
 })
 
-app.listen(4000, () => {
-    console.log("Server is up and running");
-});
+
+module.exports = app

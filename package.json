@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon server.js",
+    "test": "jest --watchAll --verbose"
   },
   "author": "",
   "license": "ISC",
@@ -21,5 +22,9 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^8.0.0"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "supertest": "^6.3.3"
+  }
 }
