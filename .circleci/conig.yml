@@ -1,0 +1,31 @@
+# Node.js CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+version: 2.1
+jobs:
+  build:
+    # Use the latest available Ubuntu environment
+    machine: true
+    # Specify the Node.js version to use
+    environment:
+      NODE_VERSION: 16
+    steps:
+      # Checkout the code from GitHub
+      - checkout
+      # Install Node.js and npm
+      - run:
+          name: Install Node.js and npm
+          command: |
+            curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+            sudo apt-get install -y nodejs
+            sudo npm install -g npm
+      # Install project dependencies
+      - run:
+          name: Install dependencies
+          command: |
+            npm install
+      # Run tests
+      - run:
+          name: Run tests
+          command: |
+            npm test
