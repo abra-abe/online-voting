@@ -5,7 +5,7 @@ describe("POST /test", () => {
     describe("when the home page is reached", () => {
         test("Should respond with status code 200", async () => {
             const response = await request(app).get("/")
-            expect(response.status).toBe(200)
+            expect(response.status).toBe(200) 
         })
     })
     describe("Is the database connected successfully to the node js app", () => {
