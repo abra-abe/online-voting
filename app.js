@@ -10,6 +10,8 @@ const login = require("./routes/login");
 const register = require("./routes/register");
 const voting = require("./routes/voting");
 const results = require("./routes/results");
+const users = require("./routes/users");
+const forgotPassword = require("./routes/recover-password");
 
 const app = express();
 
@@ -23,7 +25,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: {maxAge: 60 * 60 *1000}//1 hour
+    cookie: {maxAge: 60 }//1 hour
 }));
 
 //configuring passport
@@ -51,6 +53,10 @@ app.use("/register", register)
 app.use("/voting", voting)
 
 app.use("/results", results)
+
+app.use("/users", users)
+
+app.use("/password/recover", forgotPassword)
 
 app.get("/dashboard", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
     res.send('user: '+req.user.username+'<br>'+' session id: '+req.sessionID+'<br>'+

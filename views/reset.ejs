@@ -1,0 +1,6 @@
+<h1>Reset your Password</h1>
+<form action="/password/recover/<%= userId %>/<%= token %>" method="post">
+    <input type="password" name="password"
+    placeholder="enter new password">
+    <button type="submit">Submit</button>
+</form>
