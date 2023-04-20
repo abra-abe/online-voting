@@ -8,7 +8,7 @@ jobs:
     machine: true
     # Specify the Node.js version to use
     environment:
-      NODE_VERSION: 16
+      NODE_VERSION: 18
     steps:
       # Checkout the code from GitHub
       - checkout
