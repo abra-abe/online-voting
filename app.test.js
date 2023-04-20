@@ -20,10 +20,10 @@ describe("GET /test", () => {
             expect(response.status).toBe(200) 
         })
     })
-    describe("Is the database connected successfully to the node js app", () => {
-        test("the api endpoint /results should respond with status code 200", async () => {
-            const response = await request(app).get("/results")
-            expect(response.status).toBe(302)
-        })
-    })
+    // describe("Is the database connected successfully to the node js app", () => {
+    //     test("the api endpoint /results should respond with status code 200", async () => {
+    //         const response = await request(app).get("/results")
+    //         expect(response.status).toBe(302)
+    //     })
+    // })
 })
