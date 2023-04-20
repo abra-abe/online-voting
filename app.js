@@ -4,6 +4,8 @@ const passport = require("passport");
 const session = require("express-session");
 const connectEnsureLogin = require("connect-ensure-login")
 const bodyParser = require("body-parser");
+// const FileStore = require("session-file-store")(session);
+
 const User = require('./models/user');
 
 const login = require("./routes/login");
@@ -17,6 +19,8 @@ const app = express();
 
 //configuring view engine
 app.set('view-engine', 'ejs');
+
+//configuring body-parser
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json())
 
@@ -25,7 +29,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
-    cookie: {maxAge: 60 }//1 hour
+    cookie: {maxAge: 60*60*60 }//1 hour
 }));
 
 //configuring passport

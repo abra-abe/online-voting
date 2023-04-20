@@ -1,9 +1,10 @@
 require('dotenv').config();
 const express = require("express");
 const {MongoClient} = require("mongodb");
+const connectEnsureLogin = require("connect-ensure-login");
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get("/", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
     let uri = process.env.MONGO_URI;
     uri = uri.replace('<password>', process.env.MONGO_PASS);
     // console.log(uri);

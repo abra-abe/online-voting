@@ -11,6 +11,7 @@ router.post("/", (req,res) => {
     var email = req.body.email
     var pass = req.body.password
 
+    console.log(username);
     //posting details to the database
    User.register({username: username, email: email, active: false}, pass)
 

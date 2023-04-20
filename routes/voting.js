@@ -1,8 +1,9 @@
 const express = require("express");
+const connectEnsureLogin = require("connect-ensure-login");
 const router = express.Router();
 const Vote = require("../models/vote")
 
-router.get("/", (req, res) => {
+router.get("/", connectEnsureLogin.ensureLoggedIn(), (req, res) => {
     res.render('voting.ejs')
 })
 
